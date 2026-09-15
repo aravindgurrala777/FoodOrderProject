@@ -17,6 +17,7 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
+
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders() {
         return ResponseEntity.ok(orderService.getAllOrders());
@@ -25,6 +26,7 @@ public class OrderController {
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
         return ResponseEntity.ok(orderService.getOrderById(id));
+
     }
 
     @PostMapping
@@ -46,6 +48,7 @@ public class OrderController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
+
         return ResponseEntity.ok("Order deleted successfully");
     }
 }

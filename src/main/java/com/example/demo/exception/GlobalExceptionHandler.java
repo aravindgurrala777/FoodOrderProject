@@ -23,6 +23,7 @@ public class GlobalExceptionHandler {
         error.put("error", "Order Not Found");
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -30,6 +31,7 @@ public class GlobalExceptionHandler {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getFieldErrors().forEach(error -> 
             errors.put(error.getField(), error.getDefaultMessage())
+
         );
         
         Map<String, Object> response = new HashMap<>();
