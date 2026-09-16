@@ -23,11 +23,13 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getAllOrders());
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
         return ResponseEntity.ok(orderService.getOrderById(id));
 
     }
+
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@Valid @RequestBody Order order) {
@@ -40,10 +42,15 @@ public class OrderController {
         return ResponseEntity.ok(orderService.updateOrder(id, order));
     }
 
+
+
     @PatchMapping("/{id}")
     public ResponseEntity<Order> patchOrder(@PathVariable Long id, @RequestBody Order order) {
         return ResponseEntity.ok(orderService.patchOrder(id, order));
     }
+
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteOrder(@PathVariable Long id) {
